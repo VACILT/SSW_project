@@ -1,0 +1,32 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+- part: Northern Hemisphere
+  chapters:
+    - file: nh_intro
+      sections:
+        - file: analysis_Leipzig
+          title: Leipzig
+        - file: analysis_Juliusruh
+          title: Juliusruh
+        - file: analysis_Esrange
+          title: Kiruna (Esrange)
+        - file: analysis_Andenes
+          title: Andenes
+        - file: analysis_Sodankyla
+          title: Sodankyla
+        - file: analysis_Andenes_Kiruna
+          title: Andenes and Kiruna
+        - file: analysis_Sodankyla_Kiruna
+          title: Sodankyla and Kiruna
+        - file: analysis_CMOR
+          title: CMA (CMOR)
+- part: Southern Hemisphere
+  chapters:
+    - file: sh_intro
+      sections:
+        - file: analysis_RioGrande
+          title: Rio Grande
+        - file: analysis_Davis
+          title: Davis
