@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analysis of the new datasets for one station each &#8212; Analysis of SSW events</title>
+    <title>Analysis of the new datasets &#8212; Analysis of SSW events</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Analysis of the new datasets for one station each" href="analysis_RioGrande.html" />
+    <link rel="prev" title="Analysis of the new datasets" href="analysis_RioGrande.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -94,6 +94,11 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="analysis_Leipzig.html">
+   Leipzig
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="analysis_Juliusruh.html">
    Juliusruh
@@ -367,9 +372,9 @@
         
               <div>
                 
-  <div class="section" id="analysis-of-the-new-datasets-for-one-station-each">
-<h1>Analysis of the new datasets for one station each<a class="headerlink" href="#analysis-of-the-new-datasets-for-one-station-each" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+  <div class="section" id="analysis-of-the-new-datasets">
+<h1>Analysis of the new datasets<a class="headerlink" href="#analysis-of-the-new-datasets" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">xarray.ufuncs</span> <span class="k">as</span> <span class="nn">xrf</span>
@@ -399,7 +404,7 @@
 </div>
 <div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_group</span><span class="p">(</span><span class="n">gruppe</span><span class="p">,</span><span class="n">loc</span><span class="p">):</span>
     
@@ -427,34 +432,22 @@
     <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;alt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;altitude&#39;</span> <span class="c1">#displayed name of dimension &#39;alt&#39; (e.g. in plots) will now be &#39;altitude&#39;</span>
     
     <span class="k">return</span> <span class="n">ds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_var</span><span class="p">(</span><span class="n">gruppe</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+
+
+<span class="k">def</span> <span class="nf">read_var</span><span class="p">(</span><span class="n">gruppe</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
         <span class="n">varout</span> <span class="o">=</span> <span class="n">gruppe</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">varout</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">anomalie</span><span class="p">(</span><span class="n">step</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
+    
+    
+<span class="k">def</span> <span class="nf">anomalie</span><span class="p">(</span><span class="n">step</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
     <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;time.&quot;</span><span class="o">+</span><span class="n">step</span>   
     <span class="n">climatology</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
     <span class="n">anomalies</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">-</span> <span class="n">climatology</span>
     
     <span class="k">return</span> <span class="n">anomalies</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotting_routine</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
+
+
+<span class="k">def</span> <span class="nf">plotting_routine</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">var</span> <span class="o">==</span> <span class="s1">&#39;u0&#39;</span> <span class="ow">or</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;v0&quot;</span> <span class="ow">or</span> <span class="n">array</span> <span class="o">==</span> <span class="n">sea_gw_anomalie</span> <span class="ow">or</span> <span class="n">array</span> <span class="o">==</span> <span class="n">sea_pw_anomalie</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s1">_mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">alt</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">77</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;days&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">axs</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ax</span>
@@ -561,27 +554,27 @@
 <h3>Zonal wind component<a class="headerlink" href="#zonal-wind-component" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="climatology">
 <h4>Climatology<a class="headerlink" href="#climatology" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_18_0.png" src="_images/analysis_Davis_18_0.png" />
+<img alt="_images/analysis_Davis_15_0.png" src="_images/analysis_Davis_15_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="anomalies">
 <h4>Anomalies<a class="headerlink" href="#anomalies" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u_anomalie</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_20_0.png" src="_images/analysis_Davis_20_0.png" />
+<img alt="_images/analysis_Davis_17_0.png" src="_images/analysis_Davis_17_0.png" />
 </div>
 </div>
 </div>
@@ -590,27 +583,27 @@
 <h3>Meridional wind component<a class="headerlink" href="#meridional-wind-component" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
 <h4>Climatology<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_23_0.png" src="_images/analysis_Davis_23_0.png" />
+<img alt="_images/analysis_Davis_20_0.png" src="_images/analysis_Davis_20_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id2">
 <h4>Anomalies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v_anomalie</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_25_0.png" src="_images/analysis_Davis_25_0.png" />
+<img alt="_images/analysis_Davis_22_0.png" src="_images/analysis_Davis_22_0.png" />
 </div>
 </div>
 </div>
@@ -618,7 +611,7 @@
 </div>
 <div class="section" id="wave-estimates">
 <h2>Wave estimates<a class="headerlink" href="#wave-estimates" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;waves&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
@@ -655,27 +648,27 @@
 <h3>Gravity waves<a class="headerlink" href="#gravity-waves" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id3">
 <h4>Climatology<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_30_0.png" src="_images/analysis_Davis_30_0.png" />
+<img alt="_images/analysis_Davis_27_0.png" src="_images/analysis_Davis_27_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id4">
 <h4>Anomalies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw_anomalie</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_32_0.png" src="_images/analysis_Davis_32_0.png" />
+<img alt="_images/analysis_Davis_29_0.png" src="_images/analysis_Davis_29_0.png" />
 </div>
 </div>
 </div>
@@ -684,27 +677,27 @@
 <h3>Planetary waves<a class="headerlink" href="#planetary-waves" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id5">
 <h4>Climatology<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_35_0.png" src="_images/analysis_Davis_35_0.png" />
+<img alt="_images/analysis_Davis_32_0.png" src="_images/analysis_Davis_32_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="id6">
 <h4>Anomalies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw_anomalie</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_37_0.png" src="_images/analysis_Davis_37_0.png" />
+<img alt="_images/analysis_Davis_34_0.png" src="_images/analysis_Davis_34_0.png" />
 </div>
 </div>
 </div>
@@ -737,7 +730,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="analysis_RioGrande.html" title="previous page">Analysis of the new datasets for one station each</a>
+    <a class='left-prev' id="prev-link" href="analysis_RioGrande.html" title="previous page">Analysis of the new datasets</a>
 
         </div>
         
