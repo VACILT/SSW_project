@@ -281,35 +281,35 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#horizontal-wind-component">
-     horizontal wind component
+    <a class="reference internal nav-link" href="#zonal-wind-component">
+     Zonal wind component
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#climatology">
-       climatology
+       Climatology
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#anomalies">
-       anomalies
+       Anomalies
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#meridional-wind-component">
-     meridional wind component
+     Meridional wind component
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id1">
-       climatology
+       Climatology
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id2">
-       anomalies
+       Anomalies
       </a>
      </li>
     </ul>
@@ -317,8 +317,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wave-measurements">
-   Wave measurements
+  <a class="reference internal nav-link" href="#wave-estimates">
+   Wave estimates
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -328,12 +328,12 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id3">
-       climatology
+       Climatology
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id4">
-       anomalies
+       Anomalies
       </a>
      </li>
     </ul>
@@ -345,12 +345,12 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id5">
-       climatology
+       Climatology
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id6">
-       anomalies
+       Anomalies
       </a>
      </li>
     </ul>
@@ -479,7 +479,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sea</span><span class="p">(</span><span class="n">days_period</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
-    <span class="n">df_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;ssw_dates_without_final_warmings_&#39;</span><span class="o">+</span><span class="n">station_name</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">)</span> <span class="c1"># you can load SSWs from a csv file like attached</span>
+    <span class="n">df_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;dates/without_final_warmings/ssw_dates_without_final_warmings_&#39;</span><span class="o">+</span><span class="n">station_name</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">)</span> <span class="c1"># you can load SSWs from a csv file like attached</span>
     <span class="n">dates</span> <span class="o">=</span> <span class="n">df_dates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;BeginDate&#39;</span><span class="p">)</span>
 
     <span class="n">xa_ls</span> <span class="o">=</span> <span class="p">[]</span>
@@ -525,7 +525,7 @@
 </div>
 <div class="section" id="wind-measurements">
 <h2>Wind measurements<a class="headerlink" href="#wind-measurements" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;wind&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
@@ -558,10 +558,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="horizontal-wind-component">
-<h3>horizontal wind component<a class="headerlink" href="#horizontal-wind-component" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zonal-wind-component">
+<h3>Zonal wind component<a class="headerlink" href="#zonal-wind-component" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="climatology">
-<h4>climatology<a class="headerlink" href="#climatology" title="Permalink to this headline">¶</a></h4>
+<h4>Climatology<a class="headerlink" href="#climatology" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
@@ -574,7 +574,7 @@
 </div>
 </div>
 <div class="section" id="anomalies">
-<h4>anomalies<a class="headerlink" href="#anomalies" title="Permalink to this headline">¶</a></h4>
+<h4>Anomalies<a class="headerlink" href="#anomalies" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u_anomalie</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
@@ -588,9 +588,9 @@
 </div>
 </div>
 <div class="section" id="meridional-wind-component">
-<h3>meridional wind component<a class="headerlink" href="#meridional-wind-component" title="Permalink to this headline">¶</a></h3>
+<h3>Meridional wind component<a class="headerlink" href="#meridional-wind-component" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
-<h4>climatology<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4>Climatology<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
@@ -603,7 +603,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h4>anomalies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h4>Anomalies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v_anomalie</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
@@ -617,8 +617,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="wave-measurements">
-<h2>Wave measurements<a class="headerlink" href="#wave-measurements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wave-estimates">
+<h2>Wave estimates<a class="headerlink" href="#wave-estimates" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;waves&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
@@ -655,7 +655,7 @@
 <div class="section" id="gravity-waves">
 <h3>Gravity waves<a class="headerlink" href="#gravity-waves" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id3">
-<h4>climatology<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h4>Climatology<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
@@ -668,7 +668,7 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h4>anomalies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<h4>Anomalies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw_anomalie</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
@@ -684,7 +684,7 @@
 <div class="section" id="planetary-waves">
 <h3>Planetary waves<a class="headerlink" href="#planetary-waves" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id5">
-<h4>climatology<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<h4>Climatology<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
@@ -697,7 +697,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h4>anomalies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<h4>Anomalies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw_anomalie</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
