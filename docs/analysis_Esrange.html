@@ -376,7 +376,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_parameters tag_hide-input docutils container">
+<div class="cell tag_parameters tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s1">&#39;Leipzig&#39;</span>
 </pre></div>
@@ -393,7 +393,7 @@
 </div>
 <div class="section" id="wind-measurements">
 <h2>Wind measurements<a class="headerlink" href="#wind-measurements" title="Permalink to this headline">¶</a></h2>
-<div class="cell tag_hide-cell docutils container">
+<div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;wind&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
@@ -408,20 +408,6 @@
 
 <span class="n">sea_v</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
 <span class="n">sea_v_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">v_anomalie</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
 </pre></div>
 </div>
 </div>
@@ -487,7 +473,7 @@
 </div>
 <div class="section" id="wave-estimates">
 <h2>Wave estimates<a class="headerlink" href="#wave-estimates" title="Permalink to this headline">¶</a></h2>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;waves&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
@@ -506,20 +492,6 @@
 <span class="n">sea_pw</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_pw&#39;</span>
 <span class="n">sea_pw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">pw_anomalie</span><span class="p">)</span>
 <span class="n">sea_pw_anomalie</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_pw_anomalie&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
-  return np.nanmean(a, axis=axis, dtype=dtype)
 </pre></div>
 </div>
 </div>
