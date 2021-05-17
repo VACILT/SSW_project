@@ -1,4 +1,4 @@
-### Remarks
+## Interpretation
 In the time period from 4 until 2 weeks before the SSW onset the zonal wind is more westerly (eastward) than normal (in the mean for the certain calendar day) at the station on the northern hemisphere. This could be the upper edge of the intensified jetstream between stratosphere and mesosphere, which is typical in the time before SSWs. In the datasets it is best pronounced at CMOR meteor radar.<br>
 In the time period around the SSW onset latitudinal differences in the zonal wind component can be seen. The stations at lower latitudes, i.e. Collm, Juliusruh and CMOR, show a maximum of the zonal wind reverse around 3-5 days after the SSW onset. At higher latitudes (Kiruna, Andenes, Sodankyla and their combined datasets) the decrease of zonal wind speed and reverse to easterly direction is already apparent a few days earlier, that is, around the SSW onset.<br>
 This observation corresponds to the planetary wave (PW) activity, which is enhanced earlier for Kiruna etc. and later for Collm etc. This leads to the assumption that latitudinal differences are apparent in the PW activity as well.<br>
