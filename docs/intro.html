@@ -131,7 +131,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="analysis_Leipzig.html">
-   Leipzig
+   Collm (Leipzig)
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,6 +278,31 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geographical-location-of-the-meteor-radar-stations">
+   Geographical location of the meteor radar stations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-availabilty-and-number-of-ssw-events">
+   Data availabilty and number of SSW events
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -291,9 +316,84 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>The average meteorological conditions during SSW events should be characterized in this project. Thus, this project does not aim to investigate the differences between individual events. It rather concentrates on the mean perturbations to be expected during an “average” SSW event.</p>
 <p>Therefore a method which is called “superposed epoch analysis” (sometimes known as composite analysis as well) was used. At that the data from each event are ordered with reference to the so-called “epoch time” (Denton et al., 2019). In this case this is the time of the SSW onset. These ordered data were then averaged over all considered SSW events in order to receive the average conditions. These were then plotted for a time period from 40 days before to 40 days after the SSW onset. The dates at which SSW events occured were extracted from King et al. (2019).</p>
 <p>To investigate anomalies as well, the deviation relative to the climatologies for the same calendar day was derived.</p>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>The data used in this project consist of meteor radar measurements for eight stations. The location of these stations is shown in the map below.<br>
+Six of them - Andenes, Kiruna (Esrange), Sodankyla, Collm Observatory, Juliusruh and the CMOR meteor radar at London, Ontario (further referred to as CMA) - are situated on the northern hemisphere. Whereas Rio Grande and Davis are located on the southern hemisphere. Because of the different lengths of the time series at the five stations not all SSW events could be investigated at each station. The data availability of the different stations and the corresponding number of SSWs included in the analysis is shown in the table below.</p>
+</div>
+<div class="section" id="geographical-location-of-the-meteor-radar-stations">
+<h2>Geographical location of the meteor radar stations<a class="headerlink" href="#geographical-location-of-the-meteor-radar-stations" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Geographical location of the meteor radar stations" src="_images/station_map_cropped.png" /></p>
+</div>
+<div class="section" id="data-availabilty-and-number-of-ssw-events">
+<h2>Data availabilty and number of SSW events<a class="headerlink" href="#data-availabilty-and-number-of-ssw-events" title="Permalink to this headline">¶</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th style="text-align: center">Start</th>
+      <th style="text-align: center">End</th>
+      <th style="text-align: center">Number of SSWs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kiruna</td>
+      <td style="text-align: center">01.08.1999</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">11</td>
+    </tr>
+    <tr>
+      <td>Andenes</td>
+      <td style="text-align: center">01.06.2002</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">9</td>
+    </tr>
+    <tr>
+      <td>Sodankyla</td>
+      <td style="text-align: center">01.10.2008</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td>Collm</td>
+      <td style="text-align: center">01.08.2004</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">7</td>
+    </tr>
+    <tr>
+      <td>Juliusruh</td>
+      <td style="text-align: center">01.01.2002</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">9</td>
+    </tr>
+    <tr>
+      <td>CMA</td>
+      <td style="text-align: center">01.01.2002</td>
+      <td style="text-align: center">31.12.2018</td>
+      <td style="text-align: center">9</td>
+    </tr>
+    <tr>
+      <td>Rio Grande</td>
+      <td style="text-align: center">01.02.2008</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td>Davis</td>
+      <td style="text-align: center">01.01.2005</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">7</td>
+    </tr>
+  </tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
