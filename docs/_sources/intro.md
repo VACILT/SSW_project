@@ -24,7 +24,7 @@ Six of them - Andenes, Kiruna (Esrange), Sodankyla, Collm Observatory, Juliusruh
 ## Data availabilty and number of SSW events
 
 
-<table>
+<table width="75%" align="center">
   <thead>
     <tr>
       <th>Station</th>
