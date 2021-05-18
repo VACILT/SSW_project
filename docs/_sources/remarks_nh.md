@@ -11,4 +11,4 @@ In the weeks after the SSW onset the zonal wind reverses to westerly directions 
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script>```
+</script>

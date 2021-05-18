@@ -11,4 +11,4 @@ At Davis these inter-hemispheric coupling impacts are less pronounced. There are
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script>```
+</script>
