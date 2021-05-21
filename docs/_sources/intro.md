@@ -84,7 +84,3 @@ Six of them - Andenes, Kiruna (Esrange), Sodankyla, Collm Observatory, Juliusruh
     </tr>
   </tbody>
 </table>
-
-```python
-
-```
