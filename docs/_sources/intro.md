@@ -21,7 +21,7 @@ Six of them - Andenes, Kiruna (Esrange), Sodankyla, Collm Observatory, Juliusruh
 ![Geographical location of the meteor radar stations](station_map_cropped.png)
 
 
-## Data availabilty and number of SSW events
+## Data availability and number of SSW events
 
 
 <table width="75%" align="center">

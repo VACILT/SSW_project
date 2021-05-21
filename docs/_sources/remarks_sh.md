@@ -7,7 +7,7 @@ Around 10 days after the SSW onset the meridional wind reverses to a southward d
 At Davis these inter-hemispheric coupling impacts are less pronounced. There are only very slight changes in the zonal wind component and the anomalies are of small magnitude. In general, Davis shows the least changes of the 5 stations. This seems logic as it is situated in the Antarctic and therefore is the southernmost station with the greatest distance to the northern hemispheric polar vortex where the SSW events occur.<br>
 
 The findings according to the anomalies of GW kinetic energy at Davis and Rio Grande seem to be consistent with the theoretical expectation from the inter-hemispheric coupling theory. One can see negative anomalies in around 90 km altitude before or around SSW events and positive anomalies below. This enhanced GW activity (compared to the climatological mean) - initially reaching up to 85 km - is also travelling downward with time (especially after the SSW onset), which agrees with the downward shift of GW drag stated by Körnich and Becker (2010) as a result of inter-hemispheric coupling. The decreasing kinetic energy of GWs in the upper mesosphere around the SSW onset is visible in the climatology plot as well. Especially at Davis this is well pronounced.<br>
-This agreement with the theory is an advance compared the a study of Yasui et al. (2016) as their obtained results were inconsistent with the inter-hemispheric coupling hypothesis.
+This agreement with the theory is an advance compared to the study of Yasui et al. (2016) as their obtained results were inconsistent with the inter-hemispheric coupling hypothesis.
 <script src="https://utteranc.es/client.js"
         repo="VACILT/SSW_project"
         issue-term="pathname"
