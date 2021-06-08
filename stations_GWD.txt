@@ -1,7 +1,7 @@
 Leipzig
 Esrange
-Andenes
 Sodankyla
+Sodankyla_Kiruna
 CMOR
 RioGrande
 Davis
