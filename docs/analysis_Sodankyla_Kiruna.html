@@ -452,9 +452,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
 
-<span class="n">u_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="n">u_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
 
-<span class="n">v_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">v_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
 
 <span class="n">sea_u</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
 <span class="n">sea_u_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">u_anomalie</span><span class="p">)</span>
@@ -532,9 +532,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
 <span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
 
-<span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
+<span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
 
-<span class="n">pw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
+<span class="n">pw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
 
 <span class="n">sea_gw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
 <span class="n">sea_gw</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_gw&#39;</span>
@@ -603,7 +603,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 
 <span class="n">gwd</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;GWD&#39;</span><span class="p">]</span> 
 
-<span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
+<span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 
 <span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 <span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd_anomalie</span><span class="p">)</span>
