@@ -538,12 +538,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">pw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
 
 <span class="n">sea_gw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
-<span class="n">sea_gw</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_gw&#39;</span>
+<span class="c1">#sea_gw.name = &#39;sea_gw&#39;</span>
 <span class="n">sea_gw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gw_anomalie</span><span class="p">)</span>
 <span class="n">sea_gw_anomalie</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_gw_anomalie&#39;</span>
 
 <span class="n">sea_pw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
-<span class="n">sea_pw</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_pw&#39;</span>
+<span class="c1">#sea_pw.name = &#39;sea_pw&#39;</span>
 <span class="n">sea_pw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">pw_anomalie</span><span class="p">)</span>
 <span class="n">sea_pw_anomalie</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_pw_anomalie&#39;</span>
 </pre></div>
@@ -558,7 +558,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h5>Climatology<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,6 +607,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 
 <span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
+<span class="c1">#sea_gwd.name = &#39;sea_gwd&#39;</span>
 <span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd_anomalie</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -646,7 +647,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Climatology<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
