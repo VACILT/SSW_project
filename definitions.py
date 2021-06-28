@@ -41,6 +41,10 @@ def read_group(gruppe,loc):
 
 def read_var(gruppe, var):
         varout = gruppe[var]
+       
+        temp = varout.attrs
+        varout.attrs['units'] = list(temp.values())[0].split(' / ')[-1]
+        #varout.attrs['units'] = unit
         return varout
 
 
@@ -52,28 +56,32 @@ def anomalie(step,var):
     return anomalies
 
 
-def plotting_routine(array,var):
-    if var in ['u0','v0','GWD'] or array['name'] == 'sea_gw_anomalie' or array['name'] == 'sea_pw_anomalie':
+def plotting_routine(array,var,log=False):
+    if log == False:
         
-        if var == 'GWD':
-            lower_boundary=84
-            upper_boundary=95
-        else:
-            lower_boundary = 77
-            upper_boundary = 101
+        lower_boundary = 77
+        upper_boundary = 101
         
         p = array[f'{var}_mean'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contourf(x='days',size=9,robust=True, levels =41, aspect=4)
         axs = p.ax
         nl = 11
         ax1 = array[f'{var}_std'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contour(x='days',robust=True, levels = nl,
                                                                 colors ='k', ax = axs, linewidths=np.linspace(0.1,5,nl))
-    elif array['name'] == 'sea_gw' or array['name'] == 'sea_pw':
+    elif log == True:
+        
+        if var == 'GWD':
+            lower_boundary=82
+            upper_boundary=98
+        else:
+            lower_boundary = 77
+            upper_boundary = 101
+        
         levs = np.logspace(0, 3.0, num=21)
-        p = array[f'{var}_mean'].sel(alt = slice(77,101)).plot.contourf(x='days',size=9,robust=True, levels = levs, 
+        p = array[f'{var}_mean'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contourf(x='days',size=9,robust=True, levels = levs, 
                                                                 norm = colors.LogNorm(), extend = 'both', aspect=4)
         axs = p.ax
         nl = 11
-        ax1 = array[f'{var}_std'].sel(alt = slice(77,101)).plot.contour(x='days',robust=True, levels = nl,
+        ax1 = array[f'{var}_std'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contour(x='days',robust=True, levels = nl,
                                                                 colors ='k', ax = axs, linewidths=np.linspace(0.1,5,nl))
         
         p.colorbar.set_ticks([1,10,100,1000])
@@ -94,6 +102,7 @@ def sea(days_period,station_name,var):
         comp_s = var.sel(time = mask).std('time')
         comp_m.name=f'{var.name}_mean'            # Variable Mittelwert umbenennen
         comp_s.name=f'{var.name}_std'             # Variable Standardabweichung umbenennen
+        comp_m.attrs['units'] = var.attrs['units']
 
         xa_ls.append(xr.merge([comp_m, comp_s]))  # Merge arrays of mean and standard deviation in one data array
    
