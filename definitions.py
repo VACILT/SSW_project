@@ -53,11 +53,19 @@ def anomalie(step,var):
 
 
 def plotting_routine(array,var):
-    if var == 'u0' or var == 'v0' or array['name'] == 'sea_gw_anomalie' or array['name'] == 'sea_pw_anomalie':
-        p = array[f'{var}_mean'].sel(alt = slice(77,101)).plot.contourf(x='days',size=9,robust=True, levels =41, aspect=4)
+    if var in ['u0','v0','GWD'] or array['name'] == 'sea_gw_anomalie' or array['name'] == 'sea_pw_anomalie':
+        
+        if var == 'GWD':
+            lower_boundary=84
+            upper_boundary=95
+        else:
+            lower_boundary = 77
+            upper_boundary = 101
+        
+        p = array[f'{var}_mean'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contourf(x='days',size=9,robust=True, levels =41, aspect=4)
         axs = p.ax
         nl = 11
-        ax1 = array[f'{var}_std'].sel(alt = slice(77,101)).plot.contour(x='days',robust=True, levels = nl,
+        ax1 = array[f'{var}_std'].sel(alt = slice(lower_boundary,upper_boundary)).plot.contour(x='days',robust=True, levels = nl,
                                                                 colors ='k', ax = axs, linewidths=np.linspace(0.1,5,nl))
     elif array['name'] == 'sea_gw' or array['name'] == 'sea_pw':
         levs = np.logspace(0, 3.0, num=21)
