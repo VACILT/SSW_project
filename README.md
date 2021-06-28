@@ -1,5 +1,7 @@
 # SSW (student) project
 
+See this website: [https://vacilt.github.io/SSW_project/intro.html](https://vacilt.github.io/SSW_project/intro.html).
+
 ## Methodology
 ### Superposed epoch analysis
 The average meteorological conditions during SSW events should be characterized in this
