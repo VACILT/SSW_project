@@ -585,7 +585,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Gravity wave drag<a class="headerlink" href="#gravity-wave-drag" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Leipzig&#39;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station</span>
+
+<span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Leipzig&#39;</span><span class="p">:</span>
     <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2004-08-01_2020-12-01_Col.nc&#39;</span>
 <span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;CMOR&#39;</span><span class="p">:</span>
     <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2002-01-01_2020-11-01_CMA.nc&#39;</span>
@@ -598,7 +600,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;RioGrande&#39;</span><span class="p">:</span>
     <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2008-02-01_2021-01-01_Rio.nc&#39;</span>
 <span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla_Kiruna&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_1999-08-01_2019-12-01_SES.nc&#39;</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_1999-08-01_2021-05-01_SES.nc&#39;</span>
+    <span class="n">station_name</span> <span class="o">=</span> <span class="s1">&#39;SES&#39;</span>
     
 <span class="n">ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 
@@ -606,9 +609,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 
 <span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 
-<span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
+<span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 <span class="c1">#sea_gwd.name = &#39;sea_gwd&#39;</span>
-<span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gwd_anomalie</span><span class="p">)</span>
+<span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">gwd_anomalie</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
