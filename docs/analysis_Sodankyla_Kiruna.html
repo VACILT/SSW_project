@@ -86,7 +86,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Analysis of the new datasets" href="analysis_CMOR.html" />
+    <link rel="next" title="Analysis of the new datasets" href="SES_all_dates.html" />
     <link rel="prev" title="Analysis of the new datasets" href="analysis_Sodankyla.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -147,7 +147,12 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Sodankyla and Kiruna
+   Sodankyla and Kiruna since 2008
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SES_all_dates.html">
+   Sodankyla and Kiruna all dates
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,6 +421,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
 
 <span class="kn">from</span> <span class="nn">definitions</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># imports all functions from definitions.py</span>
+<span class="kn">from</span> <span class="nn">bootstrap_sampling</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">keep_attrs</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">display_style</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>  <span class="c1"># Attributes of DataArrays will be kept through operations.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;22&#39;</span>
@@ -453,6 +459,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
 
+<span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla_Kiruna&#39;</span><span class="p">:</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2008&#39;</span><span class="p">,</span><span class="s1">&#39;2020&#39;</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2008&#39;</span><span class="p">,</span><span class="s1">&#39;2020&#39;</span><span class="p">))</span>
+
 <span class="n">u_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
 
 <span class="n">v_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
@@ -486,6 +496,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u_anomalie</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
+<span class="c1">#stat_signific(station,sea_u_anomalie,u_anomalie)</span>
 </pre></div>
 </div>
 </div>
@@ -532,6 +543,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;waves&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
 <span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla_Kiruna&#39;</span><span class="p">:</span>
+    <span class="n">gw</span> <span class="o">=</span> <span class="n">gw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2008&#39;</span><span class="p">,</span><span class="s1">&#39;2020&#39;</span><span class="p">))</span>
+    <span class="n">pw</span> <span class="o">=</span> <span class="n">pw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2008&#39;</span><span class="p">,</span><span class="s1">&#39;2020&#39;</span><span class="p">))</span>
 
 <span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
 
@@ -587,25 +602,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station</span>
 
-<span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Leipzig&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2004-08-01_2020-12-01_Col.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;CMOR&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2002-01-01_2020-11-01_CMA.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Esrange&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_1999-08-01_2021-03-01_Kir.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2008-10-01_2021-03-01_Sod.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Davis&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2005-01-01_2020-12-01_Dav.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;RioGrande&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_2008-02-01_2021-01-01_Rio.nc&#39;</span>
-<span class="k">elif</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla_Kiruna&#39;</span><span class="p">:</span>
-    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/GWD_1999-08-01_2021-05-01_SES.nc&#39;</span>
-    <span class="n">station_name</span> <span class="o">=</span> <span class="s1">&#39;SES&#39;</span>
-    
-<span class="n">ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root_path</span><span class="si">}</span><span class="s1">GWD*_</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s1">.nc&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
 
 <span class="n">gwd</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;GWD&#39;</span><span class="p">]</span> 
+
+<span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s1">&#39;Sodankyla_Kiruna&#39;</span><span class="p">:</span>
+    <span class="n">gwd</span> <span class="o">=</span> <span class="n">gwd</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;2008&#39;</span><span class="p">,</span><span class="s1">&#39;2021&#39;</span><span class="p">))</span>
 
 <span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
 
@@ -702,7 +706,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="analysis_Sodankyla.html" title="previous page">Analysis of the new datasets</a>
-    <a class='right-next' id="next-link" href="analysis_CMOR.html" title="next page">Analysis of the new datasets</a>
+    <a class='right-next' id="next-link" href="SES_all_dates.html" title="next page">Analysis of the new datasets</a>
 
         </div>
         
