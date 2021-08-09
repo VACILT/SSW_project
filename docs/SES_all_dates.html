@@ -420,36 +420,70 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
 
-<span class="kn">from</span> <span class="nn">definitions</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># imports all functions from definitions.py</span>
+<span class="kn">from</span> <span class="nn">definitions</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># imports all functions from definitions.py</span>
 
-<span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">keep_attrs</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">display_style</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>  <span class="c1"># Attributes of DataArrays will be kept through operations.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;22&#39;</span>
+<span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span>
+    <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">display_style</span><span class="o">=</span><span class="s2">&quot;html&quot;</span>
+<span class="p">)</span>  <span class="c1"># Attributes of DataArrays will be kept through operations.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;22&quot;</span>
 
 
-<span class="n">alt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> \
-       <span class="mi">106</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span>
-<span class="n">root_path</span> <span class="o">=</span> <span class="s1">&#39;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/&#39;</span>
-<span class="n">dir_path</span> <span class="o">=</span> <span class="s1">&#39;/home/hochatmstud/bene/&#39;</span>
+<span class="n">alt</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">70</span><span class="p">,</span>
+    <span class="mi">72</span><span class="p">,</span>
+    <span class="mi">74</span><span class="p">,</span>
+    <span class="mi">76</span><span class="p">,</span>
+    <span class="mi">78</span><span class="p">,</span>
+    <span class="mi">80</span><span class="p">,</span>
+    <span class="mi">82</span><span class="p">,</span>
+    <span class="mi">84</span><span class="p">,</span>
+    <span class="mi">86</span><span class="p">,</span>
+    <span class="mi">88</span><span class="p">,</span>
+    <span class="mi">90</span><span class="p">,</span>
+    <span class="mi">92</span><span class="p">,</span>
+    <span class="mi">94</span><span class="p">,</span>
+    <span class="mi">96</span><span class="p">,</span>
+    <span class="mi">98</span><span class="p">,</span>
+    <span class="mi">100</span><span class="p">,</span>
+    <span class="mi">102</span><span class="p">,</span>
+    <span class="mi">104</span><span class="p">,</span>
+    <span class="mi">106</span><span class="p">,</span>
+    <span class="mi">108</span><span class="p">,</span>
+    <span class="mi">110</span><span class="p">,</span>
+    <span class="mi">112</span><span class="p">,</span>
+    <span class="mi">114</span><span class="p">,</span>
+    <span class="mi">116</span><span class="p">,</span>
+    <span class="mi">118</span><span class="p">,</span>
+    <span class="mi">120</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">root_path</span> <span class="o">=</span> <span class="s2">&quot;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/&quot;</span>
+<span class="n">dir_path</span> <span class="o">=</span> <span class="s2">&quot;/home/hochatmstud/bene/&quot;</span>
 
-<span class="k">def</span> <span class="nf">sea_SES_special</span><span class="p">(</span><span class="n">days_period</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
-    <span class="n">df_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dir_path</span><span class="o">+</span><span class="s1">&#39;dates/without_final_warmings/ssw_dates_without_final_warmings_SES_all_dates.csv&#39;</span><span class="p">)</span> <span class="c1"># you can load SSWs from a csv file like attached</span>
-    <span class="n">dates</span> <span class="o">=</span> <span class="n">df_dates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;BeginDate&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sea_SES_special</span><span class="p">(</span><span class="n">days_period</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">df_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="n">dir_path</span>
+        <span class="o">+</span> <span class="s2">&quot;dates/without_final_warmings/ssw_dates_without_final_warmings_SES_all_dates.csv&quot;</span>
+    <span class="p">)</span>  <span class="c1"># you can load SSWs from a csv file like attached</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">df_dates</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;BeginDate&quot;</span><span class="p">)</span>
 
     <span class="n">xa_ls</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">max_lag</span> <span class="o">=</span> <span class="n">days_period</span>
-    <span class="k">for</span> <span class="n">il</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">max_lag</span><span class="p">,</span><span class="n">max_lag</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>  
-        <span class="n">sel_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">days</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; days&#39;</span><span class="p">)</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s1">&#39;1D&#39;</span><span class="p">),</span><span class="n">sel_dates</span><span class="p">)</span>
-        <span class="n">comp_m</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-        <span class="n">comp_s</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-        <span class="n">comp_m</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">_mean&#39;</span>            <span class="c1"># Variable Mittelwert umbenennen</span>
-        <span class="n">comp_s</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">_std&#39;</span>             <span class="c1"># Variable Standardabweichung umbenennen</span>
-        <span class="n">comp_m</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">il</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">max_lag</span><span class="p">,</span> <span class="n">max_lag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="n">sel_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">days</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; days&quot;</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="s2">&quot;1D&quot;</span><span class="p">),</span> <span class="n">sel_dates</span><span class="p">)</span>
+        <span class="n">comp_m</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="n">comp_s</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="n">comp_m</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_mean&quot;</span>  <span class="c1"># Variable Mittelwert umbenennen</span>
+        <span class="n">comp_s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_std&quot;</span>  <span class="c1"># Variable Standardabweichung umbenennen</span>
+        <span class="n">comp_m</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
 
-        <span class="n">xa_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">comp_m</span><span class="p">,</span> <span class="n">comp_s</span><span class="p">]))</span>  <span class="c1"># Merge arrays of mean and standard deviation in one data array</span>
-   
-    <span class="n">xa_comp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">xa_ls</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;days&#39;</span><span class="p">)</span>
-    <span class="n">xa_comp</span><span class="p">[</span><span class="s1">&#39;days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">max_lag</span><span class="p">,</span> <span class="n">max_lag</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">xa_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">comp_m</span><span class="p">,</span> <span class="n">comp_s</span><span class="p">])</span>
+        <span class="p">)</span>  <span class="c1"># Merge arrays of mean and standard deviation in one data array</span>
+
+    <span class="n">xa_comp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">xa_ls</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;days&quot;</span><span class="p">)</span>
+    <span class="n">xa_comp</span><span class="p">[</span><span class="s2">&quot;days&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">max_lag</span><span class="p">,</span> <span class="n">max_lag</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">xa_comp</span>
 </pre></div>
@@ -458,7 +492,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell tag_parameters tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s1">&#39;Leipzig&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s2">&quot;Leipzig&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -475,20 +509,20 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Wind measurements<a class="headerlink" href="#wind-measurements" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;wind&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">)</span>
 
-<span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span> <span class="s2">&quot;u0&quot;</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span> <span class="s2">&quot;v0&quot;</span><span class="p">)</span>
 
-<span class="n">u_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="n">u_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
 
-<span class="n">v_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">v_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 
-<span class="n">sea_u</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
-<span class="n">sea_u_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">u_anomalie</span><span class="p">)</span>
+<span class="n">sea_u</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="n">sea_u_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">u_anomalie</span><span class="p">)</span>
 
-<span class="n">sea_v</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-<span class="n">sea_v_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">v_anomalie</span><span class="p">)</span>
+<span class="n">sea_v</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">sea_v_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">v_anomalie</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -499,7 +533,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Climatology<a class="headerlink" href="#climatology" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u</span><span class="p">,</span> <span class="s2">&quot;u0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -512,7 +546,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Anomalies<a class="headerlink" href="#anomalies" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u_anomalie</span><span class="p">,</span><span class="s1">&#39;u0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_u_anomalie</span><span class="p">,</span> <span class="s2">&quot;u0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -528,7 +562,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Climatology<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v</span><span class="p">,</span> <span class="s2">&quot;v0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -541,7 +575,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Anomalies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v_anomalie</span><span class="p">,</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_v_anomalie</span><span class="p">,</span> <span class="s2">&quot;v0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -556,23 +590,23 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Wave estimates<a class="headerlink" href="#wave-estimates" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s1">&#39;waves&#39;</span><span class="p">,</span><span class="n">station</span><span class="p">)</span>
-<span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
-<span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;waves&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">)</span>
+<span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">)</span>
+<span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">)</span>
 
-<span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
+<span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">gw</span><span class="p">)</span>
 
-<span class="n">pw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
+<span class="n">pw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">pw</span><span class="p">)</span>
 
-<span class="n">sea_gw</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gw</span><span class="p">)</span>
-<span class="c1">#sea_gw.name = &#39;sea_gw&#39;</span>
-<span class="n">sea_gw_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">gw_anomalie</span><span class="p">)</span>
-<span class="n">sea_gw_anomalie</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_gw_anomalie&#39;</span>
+<span class="n">sea_gw</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">gw</span><span class="p">)</span>
+<span class="c1"># sea_gw.name = &#39;sea_gw&#39;</span>
+<span class="n">sea_gw_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">gw_anomalie</span><span class="p">)</span>
+<span class="n">sea_gw_anomalie</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sea_gw_anomalie&quot;</span>
 
-<span class="n">sea_pw</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">pw</span><span class="p">)</span>
-<span class="c1">#sea_pw.name = &#39;sea_pw&#39;</span>
-<span class="n">sea_pw_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station</span><span class="p">,</span><span class="n">pw_anomalie</span><span class="p">)</span>
-<span class="n">sea_pw_anomalie</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sea_pw_anomalie&#39;</span>
+<span class="n">sea_pw</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">pw</span><span class="p">)</span>
+<span class="c1"># sea_pw.name = &#39;sea_pw&#39;</span>
+<span class="n">sea_pw_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">pw_anomalie</span><span class="p">)</span>
+<span class="n">sea_pw_anomalie</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sea_pw_anomalie&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -585,7 +619,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h5>Climatology<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -598,7 +632,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h5>Anomalies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw_anomalie</span><span class="p">,</span><span class="s1">&#39;GW&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw_anomalie</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -614,20 +648,20 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station</span>
 
-<span class="n">directory</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">root_path</span><span class="si">}</span><span class="s1">GWD*_</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s1">.nc&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_path</span><span class="si">}</span><span class="s2">GWD*_</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1">#directory = root_path + &#39;GWD_1999-08-01_2021-05-01_Sodankya_Esrange.nc&#39;</span>
+<span class="c1"># directory = root_path + &#39;GWD_1999-08-01_2021-05-01_Sodankya_Esrange.nc&#39;</span>
 
-<span class="n">ds</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
 
 
-<span class="n">gwd</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;GWD&#39;</span><span class="p">]</span> 
+<span class="n">gwd</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;GWD&quot;</span><span class="p">]</span>
 
-<span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
+<span class="n">gwd_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">gwd</span><span class="p">)</span>
 
-<span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">gwd</span><span class="p">)</span>
-<span class="c1">#sea_gwd.name = &#39;sea_gwd&#39;</span>
-<span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="n">station_name</span><span class="p">,</span><span class="n">gwd_anomalie</span><span class="p">)</span>
+<span class="n">sea_gwd</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">gwd</span><span class="p">)</span>
+<span class="c1"># sea_gwd.name = &#39;sea_gwd&#39;</span>
+<span class="n">sea_gwd_anomalie</span> <span class="o">=</span> <span class="n">sea_SES_special</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">gwd_anomalie</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +670,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h5>Climatology<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gwd</span><span class="p">,</span><span class="s1">&#39;GWD&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gwd</span><span class="p">,</span> <span class="s2">&quot;GWD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +683,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h5>Anomalies<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gwd_anomalie</span><span class="p">,</span><span class="s1">&#39;GWD&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gwd_anomalie</span><span class="p">,</span> <span class="s2">&quot;GWD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -666,7 +700,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Climatology<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +713,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h4>Anomalies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw_anomalie</span><span class="p">,</span><span class="s1">&#39;PW&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw_anomalie</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
