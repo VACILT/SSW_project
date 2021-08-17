@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from matplotlib import colors
 
+# +
 alt = [
     70,
     72,
@@ -32,12 +33,15 @@ alt = [
     118,
     120,
 ]
-global root_path
-root_path = "/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/"
+
+#global root_path
+#root_path = root_path_list[1][index] #"/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/"
 dir_path = "/home/hochatmstud/bene/"
 
 
-def read_group(gruppe, loc):
+# -
+
+def read_group(gruppe, loc, root_path):
 
     station_name = loc
 
