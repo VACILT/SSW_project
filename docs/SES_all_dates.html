@@ -457,7 +457,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="mi">120</span><span class="p">,</span>
 <span class="p">]</span>
 <span class="n">root_path</span> <span class="o">=</span> <span class="s2">&quot;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/&quot;</span>
-<span class="n">dir_path</span> <span class="o">=</span> <span class="s2">&quot;/home/hochatmstud/bene/&quot;</span>
+<span class="c1">#dir_path = &quot;/home/hochatmstud/bene/&quot;</span>
 
 
 <span class="k">def</span> <span class="nf">sea_SES_special</span><span class="p">(</span><span class="n">days_period</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
@@ -509,7 +509,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Wind measurements<a class="headerlink" href="#wind-measurements" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_wind</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;wind&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">root_path</span><span class="p">)</span>
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span> <span class="s2">&quot;u0&quot;</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_wind</span><span class="p">,</span> <span class="s2">&quot;v0&quot;</span><span class="p">)</span>
@@ -590,7 +590,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Wave estimates<a class="headerlink" href="#wave-estimates" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_hide-cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;waves&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_waves</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;waves&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">root_path</span><span class="p">)</span>
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">)</span>
 <span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">)</span>
 
