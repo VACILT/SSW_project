@@ -78,7 +78,3 @@ Four of them - Kiruna (Esrange), Sodankyla, Collm Observatory and the CMOR meteo
     </tr>
   </tbody>
 </table>
-
-```python
-
-```
