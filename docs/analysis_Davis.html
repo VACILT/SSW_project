@@ -358,6 +358,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#climatology-without-tides">
+         Climatology without tides
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id4">
          Anomalies
         </a>
@@ -577,9 +582,23 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">gw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">)</span>
 <span class="n">pw</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_waves</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">)</span>
 
+
+<span class="c1"># GW activity without tides</span>
+<span class="n">root_path</span> <span class="o">=</span> <span class="s2">&quot;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/t_tide_sa/&quot;</span>
+
+<span class="n">ds_without_tides</span> <span class="o">=</span> <span class="n">read_group</span><span class="p">(</span><span class="s2">&quot;waves&quot;</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">root_path</span><span class="p">)</span>
+
+<span class="n">gw_without_tides</span> <span class="o">=</span> <span class="n">read_var</span><span class="p">(</span><span class="n">ds_without_tides</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">)</span>
+
+<span class="n">root_path</span> <span class="o">=</span> <span class="s2">&quot;/home/gemeinsam_tmp/UA_students/data/PW_GW_analysis/&quot;</span>
+
+<span class="c1"># end of GW activity without tides</span>
+
+
 <span class="k">if</span> <span class="n">station</span> <span class="o">==</span> <span class="s2">&quot;Sodankyla_Kiruna&quot;</span><span class="p">:</span>
     <span class="n">gw</span> <span class="o">=</span> <span class="n">gw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;2020&quot;</span><span class="p">))</span>
     <span class="n">pw</span> <span class="o">=</span> <span class="n">pw</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;2020&quot;</span><span class="p">))</span>
+    <span class="n">gw_without_tides</span> <span class="o">=</span> <span class="n">gw_without_tides</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;2020&quot;</span><span class="p">))</span>
 
 <span class="n">gw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">gw</span><span class="p">)</span>
 
@@ -589,6 +608,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="c1"># sea_gw.name = &#39;sea_gw&#39;</span>
 <span class="n">sea_gw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">gw_anomalie</span><span class="p">)</span>
 <span class="n">sea_gw_anomalie</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sea_gw_anomalie&quot;</span>
+
+<span class="n">sea_gw_without_tides</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">gw_without_tides</span><span class="p">)</span>
 
 <span class="n">sea_pw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">pw</span><span class="p">)</span>
 <span class="c1"># sea_pw.name = &#39;sea_pw&#39;</span>
@@ -615,6 +636,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
+<div class="section" id="climatology-without-tides">
+<h5>Climatology without tides<a class="headerlink" href="#climatology-without-tides" title="Permalink to this headline">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_gw_without_tides</span><span class="p">,</span> <span class="s2">&quot;GW&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analysis_Davis_23_0.png" src="_images/analysis_Davis_23_0.png" />
+</div>
+</div>
+</div>
 <div class="section" id="id4">
 <h5>Anomalies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
 <div class="cell tag_hide-input docutils container">
@@ -624,7 +658,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_23_0.png" src="_images/analysis_Davis_23_0.png" />
+<img alt="_images/analysis_Davis_25_0.png" src="_images/analysis_Davis_25_0.png" />
 </div>
 </div>
 </div>
@@ -662,7 +696,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_27_0.png" src="_images/analysis_Davis_27_0.png" />
+<img alt="_images/analysis_Davis_29_0.png" src="_images/analysis_Davis_29_0.png" />
 </div>
 </div>
 </div>
@@ -675,7 +709,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_29_0.png" src="_images/analysis_Davis_29_0.png" />
+<img alt="_images/analysis_Davis_31_0.png" src="_images/analysis_Davis_31_0.png" />
 </div>
 </div>
 </div>
@@ -692,7 +726,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_32_0.png" src="_images/analysis_Davis_32_0.png" />
+<img alt="_images/analysis_Davis_34_0.png" src="_images/analysis_Davis_34_0.png" />
 </div>
 </div>
 </div>
@@ -705,7 +739,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Davis_34_0.png" src="_images/analysis_Davis_34_0.png" />
+<img alt="_images/analysis_Davis_36_0.png" src="_images/analysis_Davis_36_0.png" />
 </div>
 </div>
 </div>
