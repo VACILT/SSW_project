@@ -11,8 +11,8 @@ To investigate anomalies as well, the deviation relative to the climatologies fo
 ## Data
 
 
-The data used in this project consist of meteor radar measurements for six stations. The location of these stations is shown in the map below.<br>
-Four of them - Kiruna (Esrange), Sodankyla, Collm Observatory and the CMOR meteor radar at London, Ontario (further referred to as CMA) - are situated on the northern hemisphere. Whereas Rio Grande and Davis are located on the southern hemisphere. Because of the different lengths of the time series at the five stations not all SSW events could be investigated at each station. The data availability of the different stations and the corresponding number of SSWs included in the analysis is shown in the table below.
+The data used in this project consist of meteor radar measurements for seven stations. The location of these stations is shown in the map below.<br>
+Four of them - Kiruna (Esrange), Sodankyla, Collm Observatory and the CMOR meteor radar at London, Ontario (further referred to as CMA) - are situated on the northern hemisphere. Whereas Rio Grande, Davis and Rothera are located on the southern hemisphere. Because of the different lengths of the time series at the five stations not all SSW events could be investigated at each station. The data availability of the different stations and the corresponding number of SSWs included in the analysis is shown in the table below.
 
 
 ## Geographical location of the meteor radar stations
