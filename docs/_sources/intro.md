@@ -70,5 +70,15 @@ Four of them - Kiruna (Esrange), Sodankyla, Collm Observatory and the CMOR meteo
       <td style="text-align: center">31.12.2020</td>
       <td style="text-align: center">7</td>
     </tr>
+    <tr>
+      <td>Rothera</td>
+      <td style="text-align: center">01.02.2005</td>
+      <td style="text-align: center">31.12.2020</td>
+      <td style="text-align: center">7</td>
+    </tr>
   </tbody>
 </table>
+
+```python
+
+```
