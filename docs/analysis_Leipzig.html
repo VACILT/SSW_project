@@ -389,17 +389,58 @@ commentsRunWhenDOMLoaded(addUtterances);
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#momentum-fluxes">
+     Momentum fluxes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zonal-component">
+       zonal component
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Climatology
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id8">
+         Anomalies
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meridional-component">
+       meridional component
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id9">
+         Climatology
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id10">
+         Anomalies
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#planetary-waves">
      Planetary waves
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id11">
        Climatology
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id12">
        Anomalies
       </a>
      </li>
@@ -475,7 +516,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell tag_parameters tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s2">&quot;Leipzig&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s2">&quot;CMOR&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -669,7 +710,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station</span>
 
-<span class="n">directory</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_path</span><span class="si">}</span><span class="s2">GWD*_</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s2">.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_path</span><span class="si">}</span><span class="s2">fluxes*_</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s2">*.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
 
@@ -715,10 +756,102 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
+<div class="section" id="momentum-fluxes">
+<h3>Momentum fluxes<a class="headerlink" href="#momentum-fluxes" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uw</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;uw&quot;</span><span class="p">]</span>
+<span class="n">vw</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;vw&quot;</span><span class="p">]</span>
+
+<span class="c1">#if station == &quot;Sodankyla_Kiruna&quot;:</span>
+<span class="c1">#    uw = uw.sel(time=slice(&quot;2008&quot;, &quot;2021&quot;))</span>
+<span class="c1">#    vw = vw.sel(time=slice(&quot;2008&quot;, &quot;2021&quot;))</span>
+
+<span class="n">uw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">uw</span><span class="p">)</span>
+<span class="n">vw_anomalie</span> <span class="o">=</span> <span class="n">anomalie</span><span class="p">(</span><span class="s2">&quot;dayofyear&quot;</span><span class="p">,</span> <span class="n">vw</span><span class="p">)</span>
+
+<span class="n">sea_uw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">uw</span><span class="p">)</span>
+<span class="n">sea_uw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">uw_anomalie</span><span class="p">)</span>
+
+<span class="n">sea_vw</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">vw</span><span class="p">)</span>
+<span class="n">sea_vw_anomalie</span> <span class="o">=</span> <span class="n">sea</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">vw_anomalie</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
+  return np.nanmean(a, axis=axis, dtype=dtype)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/hochatmstud/.conda/envs/uas/lib/python3.6/site-packages/xarray/core/nanops.py:142: RuntimeWarning: Mean of empty slice
+  return np.nanmean(a, axis=axis, dtype=dtype)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="zonal-component">
+<h4>zonal component<a class="headerlink" href="#zonal-component" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h5>Climatology<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_uw</span><span class="p">,</span> <span class="s2">&quot;uw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analysis_Leipzig_36_0.png" src="_images/analysis_Leipzig_36_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h5>Anomalies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_uw_anomalie</span><span class="p">,</span> <span class="s2">&quot;uw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analysis_Leipzig_38_0.png" src="_images/analysis_Leipzig_38_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="meridional-component">
+<h4>meridional component<a class="headerlink" href="#meridional-component" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h5>Climatology<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_vw</span><span class="p">,</span> <span class="s2">&quot;vw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analysis_Leipzig_41_0.png" src="_images/analysis_Leipzig_41_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h5>Anomalies<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_vw_anomalie</span><span class="p">,</span> <span class="s2">&quot;vw&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analysis_Leipzig_43_0.png" src="_images/analysis_Leipzig_43_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="planetary-waves">
 <h3>Planetary waves<a class="headerlink" href="#planetary-waves" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id7">
-<h4>Climatology<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id11">
+<h4>Climatology<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
@@ -726,12 +859,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Leipzig_34_0.png" src="_images/analysis_Leipzig_34_0.png" />
+<img alt="_images/analysis_Leipzig_46_0.png" src="_images/analysis_Leipzig_46_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h4>Anomalies<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id12">
+<h4>Anomalies<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting_routine</span><span class="p">(</span><span class="n">sea_pw_anomalie</span><span class="p">,</span> <span class="s2">&quot;PW&quot;</span><span class="p">)</span>
@@ -739,7 +872,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis_Leipzig_36_0.png" src="_images/analysis_Leipzig_36_0.png" />
+<img alt="_images/analysis_Leipzig_48_0.png" src="_images/analysis_Leipzig_48_0.png" />
 </div>
 </div>
 </div>
