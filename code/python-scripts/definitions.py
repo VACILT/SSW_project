@@ -97,20 +97,29 @@ def anomalie(step, var):
 def plotting_routine(array, var, log=False):
     if log == False:
 
-        if var == "GWD":
+        if var in ["GWD","uw","vw"]:
             lower_boundary = 82
             upper_boundary = 98
         else:
             lower_boundary = 77
             upper_boundary = 101
 
-        p = (
-            array[f"{var}_mean"]
-            .sel(alt=slice(lower_boundary, upper_boundary))
-            .plot.contourf(x="days", size=9, robust=True, levels=41, aspect=4)
-        )
+        if var in ["uw","vw"]:
+            p = (
+                array[f"{var}_mean"]
+                .sel(alt=slice(lower_boundary, upper_boundary))
+                .plot.contourf(x="days", size=9, robust=True, levels=41,center=0, aspect=4) #vmin=-0.23, vmax=0.4, aspect=4)
+            )
+        else:
+            p = (
+                array[f"{var}_mean"]
+                .sel(alt=slice(lower_boundary, upper_boundary))
+                .plot.contourf(x="days", size=9, robust=True, levels=41, aspect=4)
+            )
+        
         axs = p.ax
         nl = 11
+        
         ax1 = (
             array[f"{var}_std"]
             .sel(alt=slice(lower_boundary, upper_boundary))
@@ -123,9 +132,10 @@ def plotting_routine(array, var, log=False):
                 linewidths=np.linspace(0.1, 5, nl),
             )
         )
+       
     elif log == True:
 
-        if var == "GWD":
+        if var in ["GWD","uw","vw"]:
             lower_boundary = 82
             upper_boundary = 98
         else:
